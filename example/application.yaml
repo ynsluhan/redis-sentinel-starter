@@ -1,0 +1,19 @@
+# redis sentinel 配置
+redis:
+  sentinel:
+    node1:
+      name: "luhan_master"
+      address: "127.0.0.1:63791,127.0.0.1:63792,127.0.0.1:63793"
+      password: ""
+      db: 0
+      pool-size: 10
+      min-idle-conns: 5
+
+
+    node2:
+      name: "luhan_master"
+      address: "127.0.0.1:63791,127.0.0.1:63792,127.0.0.1:63793"
+      password: ""
+      db: 0
+      pool-size: 10
+      min-idle-conns: 5

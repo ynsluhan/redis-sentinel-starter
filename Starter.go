@@ -38,6 +38,13 @@ var sentinelMap = make(map[string]*redis.Client, 1)
 //	}
 //}
 
+/**
+ * @Author yNsLuHan
+ * @Description:
+ * @Time 2021-08-23 16:55:50
+ * @param config viper.Viper
+ * @param name	redis.sentinel  前缀
+ */
 func InitRedisSentinel(config *viper.Viper, name string) {
 	get := config.Get(name)
 	for s, i := range get.(map[string]interface{}) {
