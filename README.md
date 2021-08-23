@@ -1,2 +1,1 @@
-# setinel-starter
-sentinel-starter
+# redis-pool-starter
