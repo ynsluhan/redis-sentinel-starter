@@ -1,4 +1,4 @@
-package main
+package Starter
 
 import (
 	"github.com/go-redis/redis/v8"
