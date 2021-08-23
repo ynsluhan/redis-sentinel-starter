@@ -1,8 +1,8 @@
 package Starter
 
 import (
-	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"
+	"github.com/go-redis/redis/v8"
 	"log"
 	"strings"
 )
@@ -17,22 +17,29 @@ var sentinelMap = make(map[string]*redis.Client, 1)
 * @Version: 1.0.0
 * @Date: 2021/8/23 3:31 下午
  */
-func InitRedisPool(configPath, configType, configName string) {
-	//
-	config := viper.New()
-	config.SetConfigName(configName)
-	config.SetConfigType(configType)
-	config.AddConfigPath(configPath)
-	//
-	err := config.ReadInConfig()
-	//
-	if err != nil {
-		log.Fatal(err)
-	}
-	//
-	get := config.Get("redis.sentinel")
-	//
-	//
+//func InitRedisSentinel(configPath, configType, configName string) {
+//	// 创建viper 读取配置文件
+//	config := viper.New()
+//	config.SetConfigName(configName)
+//	config.SetConfigType(configType)
+//	config.AddConfigPath(configPath)
+//	//
+//	err := config.ReadInConfig()
+//	//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//	//
+//	get := config.Get("redis.sentinel")
+//	//
+//	//
+//	for s, i := range get.(map[string]interface{}) {
+//		SetRedisDb(i.(map[string]interface{}), s)
+//	}
+//}
+
+func InitRedisSentinel(config *viper.Viper, name string) {
+	get := config.Get(name)
 	for s, i := range get.(map[string]interface{}) {
 		SetRedisDb(i.(map[string]interface{}), s)
 	}
